@@ -18,7 +18,7 @@ namespace ContractProcessingApp.Models
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+   /* public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -29,5 +29,5 @@ namespace ContractProcessingApp.Models
         {
             return new ApplicationDbContext();
         }
-    }
+    } */
 }

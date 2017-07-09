@@ -6,17 +6,16 @@ using System.Web;
 
 namespace ContractProcessingApp.Models
 {
-    public class Project
+    public class ServiceCatalog
     {
         /**Primary Key**/
         [Key]
-        public int Id { get; set; }
+        public string ServiceID { get; set; }
 
         /**Other Attributes**/
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public decimal Cost { get; set; }
 
-
-        /**Foriegn Keys**/
-        public virtual ApplicationUser User { get; set; } //Employee - Who created?
-        public virtual ICollection<ProjectTask> Tasks { get; set; }
     }
 }

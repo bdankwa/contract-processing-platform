@@ -9,16 +9,16 @@ namespace ContractProcessingApp.Models
     public class Contract
     {
         /**Primary Key**/
+        [Key]
         public int Id { get; set; }
 
         /**Other Attributes**/
 
 
         /**Foriegn Keys**/
-        public virtual ApplicationUser User { get; set; }
+        public virtual ApplicationUser User { get; set; } //Employee - Who created?
+        public virtual ServiceRequest ServiceRequest { get; set; }
         public virtual ICollection<Project> Projects { get; set; }
-
-        [Required]
-        public string ApplicationUserId { get; set; }
+   
     }
 }

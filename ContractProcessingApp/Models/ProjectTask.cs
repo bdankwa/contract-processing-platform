@@ -6,7 +6,7 @@ using System.Web;
 
 namespace ContractProcessingApp.Models
 {
-    public class Project
+    public class ProjectTask
     {
         /**Primary Key**/
         [Key]
@@ -17,6 +17,6 @@ namespace ContractProcessingApp.Models
 
         /**Foriegn Keys**/
         public virtual ApplicationUser User { get; set; } //Employee - Who created?
-        public virtual ICollection<ProjectTask> Tasks { get; set; }
+        public virtual ICollection<ServiceCatalog> Services { get; set; }
     }
 }
