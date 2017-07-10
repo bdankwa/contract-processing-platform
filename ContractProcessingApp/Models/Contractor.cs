@@ -7,18 +7,16 @@ using System.Web;
 
 namespace ContractProcessingApp.Models
 {
-    public class ServiceRequest
+    public class Contractor
     {
         /**Primary Key**/
         [Key]
-        public int ServiceRequestID { get; set; }
+        [ForeignKey("User")]
+        public string ContractorID { get; set; }
 
         /**Other Attributes**/
 
-        /**Foreign Keys***/
-
-        [ForeignKey("User")]
-        public string CustomerID { get; set; }
-        public virtual ApplicationUser User { get; set; } //Customer
+        /**Foreign Keys**/
+        public virtual ApplicationUser User { get; set; }
     }
 }

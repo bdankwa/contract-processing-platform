@@ -4,6 +4,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
+/**This model is descriptive model to describe what tasks will be used to fullfil the project**/
+
 namespace ContractProcessingApp.Models
 {
     public class ProjectTask
@@ -13,7 +15,7 @@ namespace ContractProcessingApp.Models
         public int TaskID { get; set; }
 
         /**Other Attributes**/
-        //public string ProjectID { get; set; }
+        public string Description { get; set; }
 
         /**Foriegn Keys**/
         //public virtual ApplicationUser User { get; set; } //Employee - Who created?

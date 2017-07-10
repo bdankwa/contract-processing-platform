@@ -7,7 +7,7 @@ using System.Web;
 
 namespace ContractProcessingApp.Models
 {
-    public class ServiceOrders
+    public class ServiceOrder
     {
         /**Primary Key**/
         [Key, Column(Order = 0)]
@@ -16,7 +16,7 @@ namespace ContractProcessingApp.Models
         public int TaskID { get; set; }
 
         /**Other Attributes**/
-        public string description { get; set; }
+        public string Description { get; set; }
 
         /**Foreign Keys**/
         public virtual ServiceCatalog Catalog { get; set; }

@@ -12,7 +12,8 @@ namespace ContractProcessingApp.Models
         /**Primary Key**/
         /**Primary Key**/
         [Key, Column(Order = 0)]
-        public String Id { get; set; }
+        [ForeignKey("Contractor")]
+        public String ContractorID { get; set; }
         [Key, Column(Order = 1)]
         public string ServiceID { get; set; }
         [Key, Column(Order = 2)]
@@ -22,8 +23,8 @@ namespace ContractProcessingApp.Models
         /**Other Attributes**/
 
         /**Foreign Keys**/
-        public virtual ApplicationUser User { get; set; }
-        public virtual ServiceOrders Orders { get; set; }
+        public virtual Contractor Contractor { get; set; }
+        public virtual ServiceOrder Orders { get; set; }
 
     }
 }
