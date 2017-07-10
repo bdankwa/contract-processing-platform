@@ -23,7 +23,7 @@ namespace ContractProcessingApp.Models
 
         /**Foreign Keys**/
         public virtual ApplicationUser User { get; set; }
-        public virtual Services Services { get; set; }
+        public virtual ServiceOrders Orders { get; set; }
 
     }
 }

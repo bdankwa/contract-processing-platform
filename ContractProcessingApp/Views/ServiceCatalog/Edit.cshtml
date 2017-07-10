@@ -1,4 +1,4 @@
-﻿@model ContractProcessingApp.Models.Service
+﻿@model ContractProcessingApp.Models.ServiceCatalog
 
 @{
     ViewBag.Title = "Edit";
@@ -14,7 +14,7 @@
         <h4>Service</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.ServiceID)
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

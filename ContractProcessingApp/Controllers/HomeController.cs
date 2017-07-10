@@ -26,5 +26,26 @@ namespace ContractProcessingApp.Controllers
 
             return View();
         }
+
+        public ActionResult HowItWorks()
+        {
+            ViewBag.Message = "How it Works.";
+
+            return View();
+        }
+
+        public ActionResult Services()
+        {
+            ViewBag.Message = "Services.";
+
+            return View();
+        }
+
+        public ActionResult Portfolio()
+        {
+            ViewBag.Message = "Portfolio.";
+
+            return View();
+        }
     }
 }

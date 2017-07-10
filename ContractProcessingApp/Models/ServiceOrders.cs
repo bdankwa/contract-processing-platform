@@ -7,7 +7,7 @@ using System.Web;
 
 namespace ContractProcessingApp.Models
 {
-    public class Services
+    public class ServiceOrders
     {
         /**Primary Key**/
         [Key, Column(Order = 0)]

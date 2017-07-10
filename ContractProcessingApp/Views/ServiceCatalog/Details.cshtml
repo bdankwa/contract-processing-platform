@@ -1,4 +1,4 @@
-﻿@model ContractProcessingApp.Models.Service
+﻿@model ContractProcessingApp.Models.ServiceCatalog
 
 @{
     ViewBag.Title = "Details";
@@ -13,6 +13,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ServiceID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
