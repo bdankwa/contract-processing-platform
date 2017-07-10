@@ -10,7 +10,7 @@ using ContractProcessingApp.Models;
 
 namespace ContractProcessingApp.Controllers
 {
-    public class ServicesController : Controller
+    public class ServiceCatalogController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 

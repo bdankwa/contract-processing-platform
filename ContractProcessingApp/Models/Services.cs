@@ -7,23 +7,19 @@ using System.Web;
 
 namespace ContractProcessingApp.Models
 {
-    public class Bid
+    public class Services
     {
         /**Primary Key**/
-        /**Primary Key**/
         [Key, Column(Order = 0)]
-        public String Id { get; set; }
-        [Key, Column(Order = 1)]
         public string ServiceID { get; set; }
-        [Key, Column(Order = 2)]
+        [Key, Column(Order = 1)]
         public int TaskID { get; set; }
 
-
         /**Other Attributes**/
+        public string description { get; set; }
 
         /**Foreign Keys**/
-        public virtual ApplicationUser User { get; set; }
-        public virtual Services Services { get; set; }
-
+        public virtual ServiceCatalog Catalog { get; set; }
+        public virtual ProjectTask Task { get; set; }
     }
 }

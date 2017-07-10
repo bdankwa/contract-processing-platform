@@ -10,7 +10,7 @@ namespace ContractProcessingApp.Models
     {
         /**Primary Key**/
         [Key]
-        public int Id { get; set; }
+        public int ContractID { get; set; }
 
         /**Other Attributes**/
 

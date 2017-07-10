@@ -10,13 +10,14 @@ namespace ContractProcessingApp.Models
     {
         /**Primary Key**/
         [Key]
-        public int Id { get; set; }
+        public string ProjectID { get; set; }
 
         /**Other Attributes**/
+        //public int ContractID { get; set; }
 
 
         /**Foriegn Keys**/
-        public virtual ApplicationUser User { get; set; } //Employee - Who created?
+       // public virtual ApplicationUser User { get; set; } //Employee - Who created?
         public virtual ICollection<ProjectTask> Tasks { get; set; }
     }
 }
