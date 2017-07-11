@@ -47,5 +47,13 @@ namespace ContractProcessingApp.Controllers
 
             return View();
         }
+
+        [Authorize]
+        public ActionResult Welcome()
+        {
+            //ViewBag.Message = "Customer";
+
+            return View();
+        }
     }
 }

@@ -21,7 +21,27 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    @if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("Cust"))
+                    {
+                        <li>@Html.ActionLink("Home", "Index", "Customer")</li>
+                    }
+                    else if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("Empl"))
+                    {
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    }
+                    else if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("Cont"))
+                    {
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    }
+                    else if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    }
+
                     <li>@Html.ActionLink("Services", "Index", "Home")</li>
                     <li>@Html.ActionLink("Portfolio", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>

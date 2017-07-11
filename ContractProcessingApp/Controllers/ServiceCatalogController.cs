@@ -10,6 +10,7 @@ using ContractProcessingApp.Models;
 
 namespace ContractProcessingApp.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ServiceCatalogController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

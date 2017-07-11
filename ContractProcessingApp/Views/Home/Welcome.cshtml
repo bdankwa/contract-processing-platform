@@ -1,0 +1,27 @@
+﻿@using Microsoft.AspNet.Identity
+@{
+
+    if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("Cust"))
+    {
+        ViewBag.Title = "Customer";
+    }
+    else if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("Empl"))
+    {
+        ViewBag.Title = "Employee";
+    }
+    else if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("Cont"))
+    {
+        ViewBag.Title = "Contractor";
+    }
+    else if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("Admin"))
+    {
+        ViewBag.Title = "Adminstration";
+    }
+    else
+    {
+        ViewBag.Title = "Customer";
+    }
+}
+
+<h2>Welcome @User.Identity.GetUserName() !</h2>
+
