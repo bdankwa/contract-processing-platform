@@ -26,5 +26,7 @@ namespace ContractProcessingApp.Models
         public IDbSet<Project> Projects { get; set; }
         public IDbSet<ServiceCatalog> Services { get; set; }
         public IDbSet<ProjectTask> Tasks { get; set; }
+
+        public System.Data.Entity.DbSet<ContractProcessingApp.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

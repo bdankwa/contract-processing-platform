@@ -4,6 +4,8 @@
     if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("Cust"))
     {
         ViewBag.Title = "Customer";
+        <h2>Welcome value customer @User.Identity.GetUserName()!</h2>
+        <p> We value your business and would like to know how you feel about our services to better server you. Please sent us feedback.</p>
     }
     else if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("Empl"))
     {
@@ -23,5 +25,5 @@
     }
 }
 
-<h2>Welcome @User.Identity.GetUserName() !</h2>
+
 
