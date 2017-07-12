@@ -5,7 +5,17 @@
     {
         ViewBag.Title = "Customer";
         <h2>Welcome value customer @User.Identity.GetUserName()!</h2>
-        <p> We value your business and would like to know how you feel about our services to better server you. Please sent us feedback.</p>
+
+        <div class="row">
+            <div class="col-md-4">
+                <p><a class="btn btn-primary" href="@Url.Action("Create", "ServiceRequest")">New Request &raquo;</a></p>
+            </div>
+        </div>
+
+        <p>
+            We value your business and would like to know how you feel about our services
+            to better server you. Please sent us feedback.
+        </p>
     }
     else if (Request.IsAuthenticated && HttpContext.Current.User.IsInRole("Empl"))
     {

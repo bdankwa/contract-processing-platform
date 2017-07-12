@@ -39,7 +39,7 @@ namespace ContractProcessingApp.Controllers
         // GET: ServiceRequest/Create
         public ActionResult Create()
         {
-            ViewBag.CustomerID = new SelectList(db.ApplicationUsers, "Id", "Email");
+            ViewBag.CustomerID = new SelectList(db.Users, "Id", "Email");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace ContractProcessingApp.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CustomerID = new SelectList(db.ApplicationUsers, "Id", "Email", serviceRequest.CustomerID);
+            ViewBag.CustomerID = new SelectList(db.Users, "Id", "Email", serviceRequest.CustomerID);
             return View(serviceRequest);
         }
 
@@ -73,7 +73,7 @@ namespace ContractProcessingApp.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CustomerID = new SelectList(db.ApplicationUsers, "Id", "Email", serviceRequest.CustomerID);
+            ViewBag.CustomerID = new SelectList(db.Users, "Id", "Email", serviceRequest.CustomerID);
             return View(serviceRequest);
         }
 
@@ -90,7 +90,7 @@ namespace ContractProcessingApp.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CustomerID = new SelectList(db.ApplicationUsers, "Id", "Email", serviceRequest.CustomerID);
+            ViewBag.CustomerID = new SelectList(db.Users, "Id", "Email", serviceRequest.CustomerID);
             return View(serviceRequest);
         }
 
