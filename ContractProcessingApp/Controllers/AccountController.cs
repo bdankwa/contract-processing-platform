@@ -79,7 +79,29 @@ namespace ContractProcessingApp.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToAction("Welcome", "Home");
+                    ApplicationUser user = await UserManager.FindAsync(model.Email, model.Password);
+                    if (UserManager.IsInRole(user.Id, "Admin"))
+                    {
+                        return RedirectToAction("Index", "Administration");
+                    }
+                    else if (UserManager.IsInRole(user.Id, "Cust"))
+                    {
+                        return RedirectToAction("Index", "ServiceRequest");
+                    }
+                    else if (UserManager.IsInRole(user.Id, "Cont"))
+                    {
+                        return RedirectToAction("Index", "Outsourcing");
+                    }
+                    else if (UserManager.IsInRole(user.Id, "Empl"))
+                    {
+                        return RedirectToAction("Index", "Internal");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Invalid login attempt.");
+                        return View(model);
+                    }
+                //return RedirectToAction("Welcome", "Home");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:

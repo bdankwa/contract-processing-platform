@@ -10,6 +10,7 @@ using ContractProcessingApp.Models;
 
 namespace ContractProcessingApp.Controllers
 {
+    [Authorize]
     public class ServiceRequestController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -45,10 +46,10 @@ namespace ContractProcessingApp.Controllers
 
         // POST: ServiceRequest/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ServiceRequestID,CustomerID")] ServiceRequest serviceRequest)
+        public ActionResult Create([Bind(Include = "ServiceRequestID,FirstName,MiddleInitial,LastName,RequestCategory,Summary,RequeustCountry,RequestCity,RequestLocality,AdditionalLocationInfo,DateTimeProperty,DateTimeNullableProperty,TimeSpanProperty,Status,CustomerID")] ServiceRequest serviceRequest)
         {
             if (ModelState.IsValid)
             {
@@ -79,10 +80,10 @@ namespace ContractProcessingApp.Controllers
 
         // POST: ServiceRequest/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ServiceRequestID,CustomerID")] ServiceRequest serviceRequest)
+        public ActionResult Edit([Bind(Include = "ServiceRequestID,FirstName,MiddleInitial,LastName,RequestCategory,Summary,RequeustCountry,RequestCity,RequestLocality,AdditionalLocationInfo,DateTimeProperty,DateTimeNullableProperty,TimeSpanProperty,Status,CustomerID")] ServiceRequest serviceRequest)
         {
             if (ModelState.IsValid)
             {
