@@ -17,7 +17,7 @@ namespace ContractProcessingApp.Models
         Cancelled
     }
 
-    public enum ServiceRequestCategory
+    /*public enum ServiceRequestCategory
     {
         Land,
         Plan,
@@ -120,7 +120,7 @@ namespace ContractProcessingApp.Models
         Wenchi,
         Winneba,
         Yendi
-    }
+    } */
 
     public class ServiceRequest
     {
@@ -129,18 +129,56 @@ namespace ContractProcessingApp.Models
         public int ServiceRequestID { get; set; }
 
         /**Other Attributes**/
-        public string FirstName { get; set; }
-        public string MiddleInitial { get; set; }
-        public string LastName { get; set; }
-        public ServiceRequestCategory RequestCategory { get; set; }
+        /*Request Details*/
+        [Required]
+        [Display(Name = "Service Category:")]
+        public string RequestCategory { get; set; }
+
+        [Required]
+        [Display(Name = "Summary of Request:")]
+        [DataType(DataType.MultilineText)]
         public string Summary { get; set; }
-        public CountryList RequeustCountry { get; set; }
-        public CityList RequestCity { get; set; }
-        public string RequestLocality { get; set; }
+
+        /*Location of Property*/
+        [Required]
+        [Display(Name = "Country:")]
+        public string RequestCountry { get; set; }
+
+        [Required]
+        [Display(Name = "Closest City:")]
+        public string RequestCity { get; set; }
+
+        [Required]
+        [Display(Name = "Address or Locality:")]
+        public string RequestAddressOrLocality { get; set; }
+
+        [Display(Name = "Additional Location Information:")]
         public string AdditionalLocationInfo { get; set; }
-        public DateTime DateTimeProperty { get; set; }
-        public DateTime? DateTimeNullableProperty { get; set; }
-        public TimeSpan TimeSpanProperty { get; set; }
+
+        [Required]
+        [Display(Name = "Contact E-Mail:")]
+        [DataType(DataType.EmailAddress)]
+        [RegularExpression("\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*", ErrorMessage = "E-mail is invalid")]
+        public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "Contact Phone Number:")]
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number")]
+        public string PhoneNumber { get; set; }
+
+        /*Location of Property*/
+
+        [Display(Name = "Approximate State Date:")]
+        public DateTime StartDate { get; set; }
+
+        [Display(Name = "Desired Completion Date:")]
+        public DateTime CompleteDate { get; set; }
+
+
+        /*Internal*/
+        [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        public DateTime RequestDate { get; set; }
         public ServiceRequestStatus Status { get; set; }
 
         /**Foreign Keys***/

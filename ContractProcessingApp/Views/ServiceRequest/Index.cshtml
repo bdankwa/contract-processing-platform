@@ -15,45 +15,23 @@
             @Html.DisplayNameFor(model => model.User.Email)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MiddleInitial)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RequestCategory)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Summary)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RequeustCountry)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.RequestCity)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RequestLocality)
+            @Html.DisplayNameFor(model => model.RequestAddressOrLocality)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AdditionalLocationInfo)
+            @Html.DisplayNameFor(model => model.StartDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateTimeProperty)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateTimeNullableProperty)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TimeSpanProperty)
+            @Html.DisplayNameFor(model => model.CompleteDate)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Status)
         </th>
-        <th></th>
     </tr>
 
 @foreach (var item in Model) {
@@ -62,40 +40,19 @@
             @Html.DisplayFor(modelItem => item.User.Email)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MiddleInitial)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RequestCategory)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Summary)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RequeustCountry)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.RequestCity)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.RequestLocality)
+            @Html.DisplayFor(modelItem => item.RequestAddressOrLocality)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.AdditionalLocationInfo)
+            @Html.DisplayFor(modelItem => item.StartDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DateTimeProperty)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateTimeNullableProperty)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TimeSpanProperty)
+            @Html.DisplayFor(modelItem => item.CompleteDate)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Status)

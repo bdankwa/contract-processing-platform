@@ -6,15 +6,16 @@ using System.Web;
 
 namespace ContractProcessingApp.Models
 {
-    public class ServiceCatalog
+    public class Region
     {
-        /**Primary Key**/
+        /**Primary Key***/
         [Key]
-        public string ServiceID { get; set; }
+        public int RegionID { get; set; }
 
         /**Other Attributes**/
         public string Name { get; set; }
-        public string Description { get; set; }
-        public decimal Cost { get; set; }
+
+        /**Foreign key**/
+        public virtual ICollection<CityOrTown> CityOrTowns { get; set; }
     }
 }

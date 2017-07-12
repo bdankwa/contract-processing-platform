@@ -24,7 +24,7 @@ namespace ContractProcessingApp.Models
 
         /**Foreign Keys**/
         public virtual Contractor Contractor { get; set; }
-        public virtual ServiceOrder Orders { get; set; }
+        public virtual ServiceOrder ServiceOrder { get; set; }
 
     }
 }
