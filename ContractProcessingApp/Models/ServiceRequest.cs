@@ -177,14 +177,29 @@ namespace ContractProcessingApp.Models
 
 
         /*Internal*/
-        [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime RequestDate { get; set; }
+        //[Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        [Required]
+        public DateTime DataCreated {
+            get
+            {
+                return dateCreated ?? DateTime.Now;
+            }
+            set
+            {
+                this.dateCreated = value;
+            }
+
+        }
         public ServiceRequestStatus Status { get; set; }
 
         /**Foreign Keys***/
 
         [ForeignKey("User")]
+        //[Required]
         public string CustomerID { get; set; }
         public virtual ApplicationUser User { get; set; } //Customer
+
+        /**Miscellanous**/
+        private DateTime? dateCreated = null;
     }
 }

@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ContractProcessingApp.Models;
+using Microsoft.AspNet.Identity;
 
 namespace ContractProcessingApp.Controllers
 {
@@ -52,6 +53,7 @@ namespace ContractProcessingApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                serviceRequest.CustomerID = User.Identity.GetUserId();
                 db.ServiceRequests.Add(serviceRequest);
                 db.SaveChanges();
                 return RedirectToAction("Index");
