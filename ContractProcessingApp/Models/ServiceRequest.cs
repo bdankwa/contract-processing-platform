@@ -126,6 +126,7 @@ namespace ContractProcessingApp.Models
     {
         /**Primary Key**/
         [Key]
+        [Display(Name = "Request ID:")]
         public int ServiceRequestID { get; set; }
 
         /**Other Attributes**/
@@ -145,12 +146,12 @@ namespace ContractProcessingApp.Models
         public string RequestCountry { get; set; }
 
         [Required]
-        [Display(Name = "Closest City:")]
-        public string RequestCity { get; set; }
+        [Display(Name = "Region:")]
+        public string RequestRegion { get; set; }
 
         [Required]
-        [Display(Name = "Address or Locality:")]
-        public string RequestAddressOrLocality { get; set; }
+        [Display(Name = "Closest City or Town:")]
+        public string RequestCity { get; set; }
 
         [Display(Name = "Additional Location Information:")]
         public string AdditionalLocationInfo { get; set; }
