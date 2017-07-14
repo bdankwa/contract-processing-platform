@@ -12,16 +12,31 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ServiceRequestID)
+            @Html.DisplayNameFor(model => model.User.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestCategory)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Summary)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.RequestCountry)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestRegion)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.RequestCity)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RequestAddressOrLocality)
+            @Html.DisplayNameFor(model => model.AdditionalLocationInfo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.StartDate)
@@ -30,29 +45,51 @@
             @Html.DisplayNameFor(model => model.CompleteDate)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.DataCreated)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Status)
         </th>
+        <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.ServiceRequestID)
+            @Html.DisplayFor(modelItem => item.User.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestCategory)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Summary)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.RequestCountry)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestRegion)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.RequestCity)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.RequestAddressOrLocality)
+            @Html.DisplayFor(modelItem => item.AdditionalLocationInfo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.StartDate)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CompleteDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataCreated)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Status)

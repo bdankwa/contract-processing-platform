@@ -16,111 +16,7 @@ namespace ContractProcessingApp.Models
         Completed,
         Cancelled
     }
-
-    /*public enum ServiceRequestCategory
-    {
-        Land,
-        Plan,
-        Materials,
-        Foundation,
-        Roof,
-        Interior,
-        Floor,
-        Landscape,
-        Power,
-        Water,
-        Renewable,
-        Security
-    }
-
-    public enum CountryList
-    {
-        Ghana
-    }
-
-    public enum CityList
-    {
-        Aboso,
-        Aburi,
-        Accra,
-        Adenta_East,
-        Aflao,
-        Agogo,
-        Agona_Swedru,
-        Akim_Oda,
-        Akim_Swedru,
-        Akropong,
-        Akwatia,
-        Anloga,
-        Anomabu,
-        Apam,
-        Asamankese,
-        Ashiaman,
-        Axim,
-        Banda_Ahenkro,
-        Bawku,
-        Bechem,
-        Begoro,
-        Bekwai,
-        Berekum,
-        Bibiani,
-        Bolgatanga,
-        Cape_Coast,
-        Dome,
-        Duayaw_Nkwanta,
-        Dunkwa_on_Offin,
-        Effiakuma,
-        Ejura,
-        Elmina,
-        Foso,
-        Gbawe,
-        Ho,
-        Hohoe,
-        Japekrom,
-        Kade,
-        Keta,
-        Kete_Krachi,
-        Kibi,
-        Kintampo,
-        Koforidua,
-        Konongo,
-        Kpandae,
-        Kpandu,
-        Kumasi,
-        Lashibi,
-        Madina,
-        Mampong,
-        Mpraeso,
-        Mumford,
-        Navrongo,
-        Nkawkaw,
-        Nsawam,
-        Nungua,
-        Nyakrom,
-        Obuasi,
-        Oduponkpehe,
-        Prestea,
-        Salaga,
-        Saltpond,
-        Savelugu,
-        Sekondi_Takoradi,
-        Shama,
-        Somanya,
-        Suhum,
-        Sunyani,
-        Tafo,
-        Taifa,
-        Tamale,
-        Tarkwa,
-        Techiman,
-        Tema,
-        Tema_New_Town,
-        Teshie,
-        Wa,
-        Wenchi,
-        Winneba,
-        Yendi
-    } */
+    
 
     public class ServiceRequest
     {
@@ -168,12 +64,17 @@ namespace ContractProcessingApp.Models
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number")]
         public string PhoneNumber { get; set; }
 
-        /*Location of Property*/
-
+        /**Date of Project**/
+        [Required]
+        [DataType(DataType.Date)]
         [Display(Name = "Approximate State Date:")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime StartDate { get; set; }
 
+        [Required]
+        [DataType(DataType.Date)]
         [Display(Name = "Desired Completion Date:")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime CompleteDate { get; set; }
 
 

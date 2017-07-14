@@ -192,7 +192,6 @@
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\ServiceCatalogController.cs" />
     <Compile Include="Controllers\ServiceRequestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -276,11 +275,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\ServiceCatalog\Create.cshtml" />
-    <Content Include="Views\ServiceCatalog\Delete.cshtml" />
-    <Content Include="Views\ServiceCatalog\Details.cshtml" />
-    <Content Include="Views\ServiceCatalog\Edit.cshtml" />
-    <Content Include="Views\ServiceCatalog\Index.cshtml" />
     <Content Include="Views\Home\HowItWorks.cshtml" />
     <Content Include="Views\Home\Welcome.cshtml" />
     <Content Include="Views\ServiceRequest\Create.cshtml" />
