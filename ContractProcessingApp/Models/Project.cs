@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -10,14 +11,18 @@ namespace ContractProcessingApp.Models
     {
         /**Primary Key**/
         [Key]
-        public string ProjectID { get; set; }
+        public int ProjectID { get; set; }
 
         /**Other Attributes**/
         //public int ContractID { get; set; }
+        [ForeignKey("Contract"), Column(Order = 0)]
+        public int ContractID { get; set; }
+        [ForeignKey("Contract"), Column(Order = 1)]
+        public int ServiceRequestID { get; set; }
 
 
         /**Foriegn Keys**/
-       // public virtual ApplicationUser User { get; set; } //Employee - Who created?
+        public virtual Contract Contract { get; set; } 
         public virtual ICollection<ProjectTask> Tasks { get; set; }
     }
 }

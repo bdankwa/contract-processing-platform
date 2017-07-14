@@ -11,8 +11,10 @@ namespace ContractProcessingApp.Models
     {
         /**Primary Key**/
         [Key, Column(Order = 0)]
-        public string ServiceID { get; set; }
+        [ForeignKey("Catalog")]
+        public int ServiceID { get; set; }
         [Key, Column(Order = 1)]
+        [ForeignKey("Task")]
         public int TaskID { get; set; }
 
         /**Other Attributes**/

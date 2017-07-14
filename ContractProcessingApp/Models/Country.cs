@@ -13,7 +13,7 @@ namespace ContractProcessingApp.Models
         public int CountryID { get; set; }
 
         /**Other Attributes**/
-        public string Name { get; set;}
+        public string CountryName { get; set;}
 
         /**Foreign key**/
         public virtual ICollection<Region> Regions { get; set; }

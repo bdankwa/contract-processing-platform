@@ -18,5 +18,6 @@ namespace ContractProcessingApp.Models
 
         /**Foreign Keys**/
         public virtual ApplicationUser User { get; set; }
+        public virtual ICollection<Bid> Bid { get; set; }
     }
 }

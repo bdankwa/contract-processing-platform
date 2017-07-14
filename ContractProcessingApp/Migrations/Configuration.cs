@@ -4,6 +4,7 @@ namespace ContractProcessingApp.Migrations
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -67,6 +68,67 @@ namespace ContractProcessingApp.Migrations
                 userManager.AddToRole(user.Id, "Cont");
                 context.SaveChanges();
             }
+
+            CityOrTown koforidua = new CityOrTown { CityOrTownID = 1, City = "Koforidua" };
+            CityOrTown accra = new CityOrTown { CityOrTownID = 2, City = "Accra" };
+            CityOrTown legos = new CityOrTown { CityOrTownID = 3, City = "Legos" };
+            CityOrTown takoradi = new CityOrTown { CityOrTownID = 4, City = "Takoradi" };
+
+            List<CityOrTown> easterncities = new List<CityOrTown>
+            {
+                koforidua, accra
+            };
+
+            List<CityOrTown> westerncities = new List<CityOrTown>
+            {
+                takoradi
+            };
+
+
+            List<CityOrTown> nigeriacities = new List<CityOrTown>
+            {
+                legos
+            };
+
+            Region eastern = new Region() { RegionID = 1, RegionName = "Eastern", CityOrTowns = easterncities };
+            Region western = new Region() { RegionID = 3, RegionName = "Western", CityOrTowns = westerncities };
+            Region south = new Region() { RegionID = 2, RegionName = "South", CityOrTowns = nigeriacities };
+
+            List<Region> ghanaregions = new List<Region>
+            {
+                eastern,
+                western
+            };
+
+
+            List<Region> nigeriaregions = new List<Region>
+            {
+                south
+            };
+
+            Country ghana = new Country() { CountryID = 1, CountryName = "Ghana", Regions = ghanaregions };
+            Country nigeria = new Country() { CountryID = 2, CountryName = "Nigeria", Regions = nigeriaregions };
+
+            context.Countries.AddOrUpdate(x => x.CountryID,
+               ghana,
+               nigeria
+                );
+            context.SaveChanges();
+
+            context.Regions.AddOrUpdate(x => x.RegionID,
+                eastern,
+                western,
+                south
+                );
+            context.SaveChanges();
+
+            context.CityOrTown.AddOrUpdate(x => x.CityOrTownID,
+                koforidua,
+                legos,
+                accra,
+                takoradi);
+            context.SaveChanges();
+
 
             //  This method will be called after migrating to the latest version.
 

@@ -21,8 +21,15 @@ namespace ContractProcessingApp.Models
     public class Ammendment
     {
         /**Primary Key**/
-        [Key]
-        public int AmmendmentID { get; set; }
+        [Key, Column(Order = 0)]
+        [ForeignKey("Service")]
+        public int ServiceID { get; set; }
+        [Key, Column(Order = 1)]
+        [ForeignKey("Contract")]
+        public int ContractID { get; set; }
+        [Key, Column(Order = 2)]
+        [ForeignKey("Contract")]
+        public int ServiceRequestID { get; set; }
 
         /**Other Attributes**/
 
@@ -31,6 +38,7 @@ namespace ContractProcessingApp.Models
         [ForeignKey("User")]
         public string EmployeeID { get; set; }
         public virtual ApplicationUser User { get; set; } //Employee - Who created? One-to-One
-        public virtual ServiceCatalog Services { get; set; }
+        public virtual ServiceCatalog Service { get; set; }
+        public virtual Contract Contract { get; set; }
     }
 }

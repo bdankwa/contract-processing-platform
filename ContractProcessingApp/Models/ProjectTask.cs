@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -18,7 +19,8 @@ namespace ContractProcessingApp.Models
         public string Description { get; set; }
 
         /**Foriegn Keys**/
-        //public virtual ApplicationUser User { get; set; } //Employee - Who created?
-        //public virtual ICollection<Project> Projects { get; set; }
+        [ForeignKey("Project")]
+        public int ProjectID { get; set; }
+        public virtual Project Project { get; set; }
     }
 }

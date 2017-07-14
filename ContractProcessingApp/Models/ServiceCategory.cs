@@ -10,10 +10,10 @@ namespace ContractProcessingApp.Models
     {
         /**Primary Key**/
         [Key]
-        public string CategoryID { get; set; }
+        public int CategoryID { get; set; }
 
         /**Other Attributes Key**/
-        public string Name { get; set; }
+        public string Category { get; set; }
 
         public string Description { get; set; }
 

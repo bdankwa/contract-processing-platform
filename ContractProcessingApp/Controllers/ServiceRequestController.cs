@@ -41,6 +41,17 @@ namespace ContractProcessingApp.Controllers
         public ActionResult Create()
         {
             ViewBag.CustomerID = new SelectList(db.Users, "Id", "Email");
+
+            var countries = db.Countries.ToList();
+            List<SelectListItem> clist = new List<SelectListItem>();
+            clist.Add(new SelectListItem { Text = "--Select Country--", Value = "0" });
+
+            foreach (var m in countries)
+            {
+                clist.Add(new SelectListItem { Text = m.CountryName, Value = m.CountryID.ToString() });
+            }
+            ViewBag.country = clist;           
+
             return View();
         }
 

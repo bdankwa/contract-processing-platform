@@ -10,13 +10,11 @@ namespace ContractProcessingApp.Models
     public class Bid
     {
         /**Primary Key**/
-        /**Primary Key**/
         [Key, Column(Order = 0)]
         [ForeignKey("Contractor")]
-        public String ContractorID { get; set; }
+        public string ContractorID { get; set; }
         [Key, Column(Order = 1)]
-        public string ServiceID { get; set; }
-        [Key, Column(Order = 2)]
+        [ForeignKey("ProjectTask")]
         public int TaskID { get; set; }
 
 
@@ -24,7 +22,7 @@ namespace ContractProcessingApp.Models
 
         /**Foreign Keys**/
         public virtual Contractor Contractor { get; set; }
-        public virtual ServiceOrder ServiceOrder { get; set; }
+        public virtual ProjectTask ProjectTask { get; set; }
 
     }
 }
