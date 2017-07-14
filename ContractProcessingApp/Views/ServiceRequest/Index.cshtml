@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<ContractProcessingApp.Models.ServiceRequest>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = ViewBag.Message;
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Message</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -95,9 +95,21 @@
             @Html.DisplayFor(modelItem => item.Status)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ServiceRequestID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ServiceRequestID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ServiceRequestID })
+            @if (Request.IsAuthenticated && User.IsInRole("Cust"))
+            {
+                @: @Html.ActionLink("Edit", "Edit", new { id = item.ServiceRequestID }) |
+                @: @Html.ActionLink("Details", "Details", new { id = item.ServiceRequestID }) |
+                @: @Html.ActionLink("Delete", "Delete", new { id = item.ServiceRequestID })
+            }
+            else if (Request.IsAuthenticated && User.IsInRole("Empl"))
+            {
+                @: @Html.ActionLink("Details", "Details", new { id = item.ServiceRequestID }) |
+                @Html.ActionLink("Process", "Edit", new { id = item.ServiceRequestID })
+            }
+            else
+            {
+
+            }
         </td>
     </tr>
 }

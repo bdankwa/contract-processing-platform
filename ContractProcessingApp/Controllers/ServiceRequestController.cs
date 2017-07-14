@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity;
 
 namespace ContractProcessingApp.Controllers
 {
+    [Authorize(Roles ="Cust, Empl, Admin")]
     public class ServiceRequestController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -18,6 +19,19 @@ namespace ContractProcessingApp.Controllers
         // GET: ServiceRequest
         public ActionResult Index()
         {
+            if (User.IsInRole("Cust"))
+            {
+                ViewBag.Message = "Service Request";
+            }
+            else if (User.IsInRole("Empl"))
+            {
+                ViewBag.Message = "Service Processing";
+            }
+            else
+            {
+                ViewBag.Message = "Request Administration";
+            }
+            
             var serviceRequests = db.ServiceRequests.Include(s => s.User);
             return View(serviceRequests.ToList());
         }

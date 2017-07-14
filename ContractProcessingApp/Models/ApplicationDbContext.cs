@@ -32,11 +32,5 @@ namespace ContractProcessingApp.Models
         public IDbSet<ServiceCategory> ServiceCategories { get; set; }
         public IDbSet<ServiceOrder> ServiceOrders { get; set; }
         public IDbSet<ServiceRequest> ServiceRequests { get; set; }
-
-
-
-
-
-
     }
 }
