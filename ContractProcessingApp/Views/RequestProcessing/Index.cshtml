@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Request Processing";
+}
+
+<h2>Service Request Processing</h2>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+         $("menucontainer").tabs();
+    });
+</script>
+
+<div id="menucontainer">
+    <ul id="menu">
+        <li>
+            @Html.ActionLink("Request Approval", "Index", "RequestProcessing",
+            new { title="Request Processing Page" }, null)
+        </li>
+        <li>
+            @Html.ActionLink("Task Processing", "Index", "RequestProcessing",
+            new { title = "Task Processing Page" }, null)
+        </li>
+    </ul>
+</div>
+

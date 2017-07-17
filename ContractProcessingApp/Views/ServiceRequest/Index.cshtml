@@ -104,7 +104,7 @@
             else if (Request.IsAuthenticated && User.IsInRole("Empl"))
             {
                 @: @Html.ActionLink("Details", "Details", new { id = item.ServiceRequestID }) |
-                @Html.ActionLink("Process", "Edit", new { id = item.ServiceRequestID })
+                @Html.ActionLink("Process", "Index", "RequestProcessing", null, new { id = item.ServiceRequestID })
             }
             else
             {
