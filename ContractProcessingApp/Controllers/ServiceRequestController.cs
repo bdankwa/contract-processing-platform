@@ -19,20 +19,16 @@ namespace ContractProcessingApp.Controllers
         // GET: ServiceRequest
         public ActionResult Index()
         {
+            ViewBag.Message = "Service Request";
+
+            var serviceRequests = db.ServiceRequests.Include(s => s.User);
+
             if (User.IsInRole("Cust"))
             {
-                ViewBag.Message = "Service Request";
+                var userID = User.Identity.GetUserId();
+                serviceRequests = db.ServiceRequests.Where(x => x.User.Id == userID);
             }
-            else if (User.IsInRole("Empl"))
-            {
-                ViewBag.Message = "Service Processing";
-            }
-            else
-            {
-                ViewBag.Message = "Request Administration";
-            }
-            
-            var serviceRequests = db.ServiceRequests.Include(s => s.User);
+
             return View(serviceRequests.ToList());
         }
 
@@ -74,11 +70,12 @@ namespace ContractProcessingApp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ServiceRequestID,RequestCategory,Summary,RequestCountry,RequestRegion,RequestCity,AdditionalLocationInfo,Email,PhoneNumber,StartDate,CompleteDate,Status")] ServiceRequest serviceRequest)
+        public ActionResult Create([Bind(Include = "ServiceRequestID,RequestCategory,Summary,RequestCountry,RequestRegion,RequestCity,AdditionalLocationInfo,Email,PhoneNumber,StartDate,CompleteDate")] ServiceRequest serviceRequest)
         {
             if (ModelState.IsValid)
             {
                 serviceRequest.CustomerID = User.Identity.GetUserId();
+                serviceRequest.Status = ServiceRequestStatus.Draft;
                 db.ServiceRequests.Add(serviceRequest);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -146,6 +143,34 @@ namespace ContractProcessingApp.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
+        // GET: ServiceRequest/Submit/5
+        public ActionResult Submit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ServiceRequest serviceRequest = db.ServiceRequests.Find(id);
+            if (serviceRequest == null)
+            {
+                return HttpNotFound();
+            }
+            return View(serviceRequest);
+        }
+
+        // POST: ServiceRequest/Submit/5
+        [HttpPost, ActionName("Submit")]
+        [ValidateAntiForgeryToken]
+        public ActionResult SubmitConfirmed(int id)
+        {
+            ServiceRequest serviceRequest = db.ServiceRequests.Find(id);
+            serviceRequest.Status = ServiceRequestStatus.Submitted;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
 
         protected override void Dispose(bool disposing)
         {

@@ -45,6 +45,18 @@ namespace ContractProcessingApp.Migrations
                 context.SaveChanges();
             }
 
+            if (!context.Users.Any(u => u.UserName == "okodua@gmail.com"))
+            {
+                var user = new ApplicationUser { UserName = "okodua@gmail.com", Email = "okodua@gmail.com" };
+                IdentityResult result = userManager.Create(user, "Pyramid$1777");
+
+                context.Roles.AddOrUpdate(r => r.Name, new IdentityRole { Name = "Cust" });
+                context.SaveChanges();
+
+                userManager.AddToRole(user.Id, "Cust");
+                context.SaveChanges();
+            }
+
             if (!context.Users.Any(u => u.UserName == "kkdankwa@gmail.com"))
             {
                 var user = new ApplicationUser { UserName = "kkdankwa@gmail.com", Email = "kkdankwa@gmail.com" };

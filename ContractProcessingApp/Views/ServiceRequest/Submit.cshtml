@@ -1,0 +1,127 @@
+﻿@model ContractProcessingApp.Models.ServiceRequest
+
+@{
+    ViewBag.Title = "Submit";
+}
+
+<h2>Submit</h2>
+
+<h3>Are you ready to submit this request?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Summary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Summary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestCountry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestCountry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestRegion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestRegion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AdditionalLocationInfo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AdditionalLocationInfo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompleteDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompleteDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataCreated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Submit" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

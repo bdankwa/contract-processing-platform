@@ -292,6 +292,7 @@
     <Content Include="Views\RequestProcessing\Index.cshtml" />
     <Content Include="Views\RequestProcessing\Approvals.cshtml" />
     <Content Include="Views\RequestProcessing\Processing.cshtml" />
+    <Content Include="Views\ServiceRequest\Submit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
