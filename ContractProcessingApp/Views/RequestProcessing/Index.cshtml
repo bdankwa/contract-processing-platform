@@ -5,22 +5,23 @@
 
 <h2>Service Request Processing</h2>
 
-<script type="text/javascript">
-    $(document).ready(function() {
-         $("menucontainer").tabs();
-    });
-</script>
+<div>
 
-<div id="menucontainer">
-    <ul id="menu">
-        <li>
-            @Html.ActionLink("Request Approval", "Index", "RequestProcessing",
-            new { title="Request Processing Page" }, null)
-        </li>
-        <li>
-            @Html.ActionLink("Task Processing", "Index", "RequestProcessing",
-            new { title = "Task Processing Page" }, null)
-        </li>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#approvals" aria-controls="approvals" role="tab" data-toggle="tab">Request Approvals</a></li>
+        <li role="presentation"><a href="#processing" aria-controls="processing" role="tab" data-toggle="tab">Task Processing</a></li>
     </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="approvals">
+            @{Html.RenderAction("Approvals");}
+        </div>
+        <div role="tabpanel" class="tab-pane" id="processing">
+            @{Html.RenderAction("Processing");}
+        </div>
+    </div>
+
 </div>
 

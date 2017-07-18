@@ -290,6 +290,8 @@
     <Content Include="Views\Contract\Edit.cshtml" />
     <Content Include="Views\Contract\Index.cshtml" />
     <Content Include="Views\RequestProcessing\Index.cshtml" />
+    <Content Include="Views\RequestProcessing\Approvals.cshtml" />
+    <Content Include="Views\RequestProcessing\Processing.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

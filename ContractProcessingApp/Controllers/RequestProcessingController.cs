@@ -19,5 +19,17 @@ namespace ContractProcessingApp.Controllers
         {
             return View();
         }
+
+        // GET: Approvals
+        public ActionResult Approvals()
+        {
+            return View();
+        }
+
+        // GET: Processing
+        public ActionResult Processing()
+        {
+            return View();
+        }
     }
 }

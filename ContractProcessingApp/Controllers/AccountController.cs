@@ -94,7 +94,7 @@ namespace ContractProcessingApp.Controllers
                     }
                     else if (UserManager.IsInRole(user.Id, "Empl"))
                     {
-                        return RedirectToAction("Index", "ServiceRequest");
+                        return RedirectToAction("Index", "RequestProcessing");
                     }
                     else
                     {
