@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<ContractProcessingApp.Models.ServiceRequest>
+
 @{
     Layout = null;
 }
@@ -11,8 +12,99 @@
     <title>Approvals</title>
 </head>
 <body>
-    <h2>TODO: Service Request Approvals</h2>
-    <div> 
-    </div>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.User.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Summary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestCountry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestRegion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequestCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdditionalLocationInfo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompleteDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataCreated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestCategory)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Summary)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestCountry)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestRegion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequestCity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdditionalLocationInfo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompleteDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataCreated)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.ServiceRequestID }) |
+                    @Html.ActionLink("Approve", "Approve", new { id = item.ServiceRequestID })
+                </td>
+            </tr>
+        }
+
+    </table>
 </body>
 </html>

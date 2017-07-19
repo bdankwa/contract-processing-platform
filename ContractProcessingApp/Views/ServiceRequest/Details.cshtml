@@ -117,6 +117,9 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ServiceRequestID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @if (!User.IsInRole("Empl"))
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ServiceRequestID }) 
+    }   
+    | @Html.ActionLink("Back to List", "Index")
 </p>

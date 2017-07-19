@@ -101,10 +101,13 @@
             }
             else
             {
-                @:@Html.ActionLink("Edit", "Edit", new { id = item.ServiceRequestID }) |
                 @:@Html.ActionLink("Details", "Details", new { id = item.ServiceRequestID }) |
-                @:@Html.ActionLink("Delete", "Delete", new { id = item.ServiceRequestID }) |
-                @:@Html.ActionLink("Submit", "Submit", new { id = item.ServiceRequestID })
+                @:@Html.ActionLink("Submit", "Submit", new { id = item.ServiceRequestID }) |
+                @:@if (!User.IsInRole("Empl"))
+                {
+                    @:@Html.ActionLink("Edit", "Edit", new { id = item.ServiceRequestID }) |
+                    @:@Html.ActionLink("Delete", "Delete", new { id = item.ServiceRequestID }) 
+                }
             }
         </td>
     </tr>

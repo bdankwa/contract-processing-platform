@@ -23,7 +23,14 @@
                 <ul class="nav navbar-nav">
                     @if (Request.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Home", "Welcome", "Home")</li>
+                        @:@if (!User.IsInRole("Cont"))
+                        {
+                            <li>@Html.ActionLink("Home", "Index", "ServiceRequest")</li>
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Home", "Index", "ServiceRequest")</li>
+                        }
                     }
                     else
                     {

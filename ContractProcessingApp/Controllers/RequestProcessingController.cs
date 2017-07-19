@@ -14,6 +14,8 @@ namespace ContractProcessingApp.Controllers
     [Authorize(Roles ="Empl, Admin")]
     public class RequestProcessingController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         // GET: RequestProcessing
         public ActionResult Index()
         {
@@ -23,7 +25,8 @@ namespace ContractProcessingApp.Controllers
         // GET: Approvals
         public ActionResult Approvals()
         {
-            return View();
+            var submittedRequests = db.ServiceRequests.Where(x => x.Status == ServiceRequestStatus.Submitted);
+            return View(submittedRequests.ToList());
         }
 
         // GET: Processing
